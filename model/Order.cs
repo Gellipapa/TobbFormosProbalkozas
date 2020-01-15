@@ -51,6 +51,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Model
         }
         public bool getDone()
         {
+
             return done;
         }
 

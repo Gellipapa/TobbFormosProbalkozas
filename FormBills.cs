@@ -39,6 +39,7 @@ namespace TobbformosMvcPizzaTobbTabla
             
             listViewRendelesek.GridLines = true;
             listViewRendelesek.View = View.Details;
+            listViewRendelesek.FullRowSelect = true;
             listViewRendelesek.Columns.Add("Azonosító");
             listViewRendelesek.Columns.Add("Futár");
             listViewRendelesek.Columns.Add("Megrendelő");
@@ -50,6 +51,10 @@ namespace TobbformosMvcPizzaTobbTabla
             labelRendelesek.Visible = false;
             dataGridViewTetelek.Visible = false;
             labelTetelek.Visible = false;
+            listViewRendelesek.Columns[1].TextAlign = HorizontalAlignment.Right;
+            listViewRendelesek.Columns[2].TextAlign = HorizontalAlignment.Right;
+            listViewRendelesek.Columns[3].TextAlign = HorizontalAlignment.Right;
+
 
         }
         private void comboBoxMegrendelok_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,13 +80,15 @@ namespace TobbformosMvcPizzaTobbTabla
                 ListViewItem lvi = new ListViewItem(megrendeles.getOrderId().ToString());
                 lvi.SubItems.Add(megrendeles.getCourierId().ToString());
                 lvi.SubItems.Add(megrendeles.getCustomerId().ToString());
-                lvi.SubItems.Add(megrendeles.getDate().ToString());
-                lvi.SubItems.Add(megrendeles.getTime().ToString());
+                lvi.SubItems.Add(megrendeles.getDate().Substring(0,13).ToString());
+                lvi.SubItems.Add(megrendeles.getTime().ToString().Replace(',', ':'));
                 lvi.SubItems.Add(megrendeles.getDone().ToString());
 
                 listViewRendelesek.Items.Add(lvi);
 
             }
+
+            listViewRendelesek.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
     }
 }

@@ -38,7 +38,8 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
                             goodResult = int.TryParse(dr["fazon"].ToString(), out fazon);
                             if (goodResult)
                             {
-                                string datum = dr["fazon"].ToString();
+                                string datum = dr["datum"].ToString();
+                                
 
                                 double ido = -1;
                                 goodResult = double.TryParse(dr["ido"].ToString(), out ido);
@@ -50,6 +51,8 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
                                     if (teljesitesInt == 1)
                                     {
                                         teljesites = true;
+
+             
                                     }
                                     Order o = new Order(razon, vazon, fazon, datum, ido, teljesites);
                                     orders.Add(o);
