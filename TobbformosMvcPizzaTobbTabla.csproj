@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,6 +75,7 @@
     <Compile Include="model\ItemDatabase.cs" />
     <Compile Include="model\OrderDatabase.cs" />
     <Compile Include="model\Order.cs" />
+    <Compile Include="model\OrderItemsView.cs" />
     <Compile Include="model\Pizza.cs" />
     <Compile Include="model\PizzaDatabase.cs" />
     <Compile Include="Program.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="repository\Item\RepositoryDatabaseTableItemSQL.cs" />
     <Compile Include="repository\Item\RepositoryDatabaseTableItemTestData.cs" />
     <Compile Include="repository\Item\RepositoryItem.cs" />
+    <Compile Include="repository\OrderItemsView\RepositoryOrderItemsView.cs" />
     <Compile Include="repository\Order\RepositoryDatabaseTableOrder.cs" />
     <Compile Include="repository\Order\RepositoryDatabaseTableOrderSQL.cs" />
     <Compile Include="repository\Order\RepositoryDatabaseTableOrderTestData.cs" />

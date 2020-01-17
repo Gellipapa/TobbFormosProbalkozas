@@ -59,11 +59,15 @@ namespace TobbformosMvcPizzaTobbTabla
         }
         private void comboBoxMegrendelok_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBoxMegrendelok.SelectedIndex < 0)
+            dataGridViewTetelek.Visible = false;
+            labelTetelek.Visible = false;
+
+            if (comboBoxMegrendelok.SelectedIndex < 0)
             {
                 return;
             }
             listViewRendelesek.Visible = true;
+            
 
             string megrendeloNev = comboBoxMegrendelok.Text;
             feltoltListViewAdatokkal(megrendeloNev);
@@ -82,13 +86,38 @@ namespace TobbformosMvcPizzaTobbTabla
                 lvi.SubItems.Add(megrendeles.getCustomerId().ToString());
                 lvi.SubItems.Add(megrendeles.getDate().Substring(0,13).ToString());
                 lvi.SubItems.Add(megrendeles.getTime().ToString().Replace(',', ':'));
-                lvi.SubItems.Add(megrendeles.getDone().ToString());
+                if (megrendeles.getDone())
+                    lvi.SubItems.Add("Teljesítve");
+                else
+                    lvi.SubItems.Add("Nem teljesítve");
 
                 listViewRendelesek.Items.Add(lvi);
 
             }
 
+            listViewRendelesek.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewRendelesek.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewRendelesek.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewRendelesek.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewRendelesek.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewRendelesek.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+
+        private void listViewRendelesek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewRendelesek.SelectedItems.Count > 0)
+            {
+                dataGridViewTetelek.Visible = true;
+                labelTetelek.Visible = true;
+            }
+            else
+            {
+                dataGridViewTetelek.Visible = false;
+                labelTetelek.Visible = false;
+            }
+            
+
+
         }
     }
 }
