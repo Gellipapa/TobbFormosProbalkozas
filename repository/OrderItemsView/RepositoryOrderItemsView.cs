@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TobbbformosPizzaAlkalmazasTobbTabla.model;
 using TobbbformosPizzaAlkalmazasTobbTabla.Model;
 using TobbbformosPizzaAlkalmazasTobbTabla.Repository;
 
@@ -10,12 +11,26 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.repository.OrderItemsView
 {
     class RepositoryOrderItemsView
     {
-        private List<RepositoryOrderItemsView> roiv;
+        private List<OrderItemsView2> roiv;
 
 
-        public RepositoryOrderItemsView(int itemsNumber)
+        public RepositoryOrderItemsView(int orderNumber, List<Item>items, List<Pizza>pizzas)
         {
-            List<Item> itemsToView=ite;
+
+            List<Item> iviews = items.FindAll(i => i.getOrderId() == orderNumber);
+            foreach(Item i in iviews)
+            {
+                Pizza pizza = pizzas.Find(p => p.getId() == i.getPizzaId());
+                OrderItemsView2 oiv = new OrderItemsView2(
+                    orderNumber,
+                    i.getPiece(),
+                    pizza.getNeme(),
+                    pizza.getPrice()
+                    );
+
+                roiv.Add(oiv);
+            }
+
         }
 
     }

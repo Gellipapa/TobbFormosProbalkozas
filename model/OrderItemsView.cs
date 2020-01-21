@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TobbbformosPizzaAlkalmazasTobbTabla.model
 {
-    class OrderItemsView
+    class OrderItemsView2
     {
         private int orderId;
         private int piece;

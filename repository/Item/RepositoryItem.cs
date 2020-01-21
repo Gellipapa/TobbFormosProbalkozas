@@ -18,7 +18,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
             return items;
         }
 
-        public void setItem(List<Item> orders)
+        public void setItem(List<Item> items)
         {
             this.items = items;
         }
@@ -27,15 +27,15 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
    
         public DataTable getItemDataTableFromList()
         {
-            DataTable orderDT = new DataTable();
-            orderDT.Columns.Add("razon", typeof(int));
-            orderDT.Columns.Add("pazon", typeof(int));
-            orderDT.Columns.Add("db", typeof(int));
+            DataTable itemDT = new DataTable();
+            itemDT.Columns.Add("razon", typeof(int));
+            itemDT.Columns.Add("pazon", typeof(int));
+            itemDT.Columns.Add("db", typeof(int));
             foreach (Item i in items)
             {
-                orderDT.Rows.Add(i.getOrderId(),i.getPizzaId(),i.getPiece());
+                itemDT.Rows.Add(i.getOrderId(),i.getPizzaId(),i.getPiece());
             }
-            return orderDT;
+            return itemDT;
         }
 
        

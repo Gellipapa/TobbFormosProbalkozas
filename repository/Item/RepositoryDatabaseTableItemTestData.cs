@@ -13,7 +13,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
     partial class RepositoryDatabaseTableItem
     {
    
-        public void fillOrderWithTestDataFromSQLCommand()
+        public void fillItemWithTestDataFromSQLCommand()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

@@ -25,7 +25,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
             connectionString = cs.getConnectionString();
         }
 
-        public void createTableOrder()
+        public void createTableItem()
         {
             string queryUSE = "USE csarp;";
             string queryCreateTable ="" +
@@ -59,7 +59,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
         }
 
         
-        public void deleteTableOrder()
+        public void deleteTableItem()
         {
             string query =
                 "USE csarp; " +
