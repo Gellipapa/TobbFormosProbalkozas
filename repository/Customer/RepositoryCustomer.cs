@@ -58,5 +58,12 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.Repository
                 customers.Add(m);
             }
         }
+
+        public int getCustomerNumber(string megrendeloNev)
+        {
+          Customer customer =customers.Find(c => c.getName() == megrendeloNev);
+
+            return customer.getID();
+        }
     }
 }

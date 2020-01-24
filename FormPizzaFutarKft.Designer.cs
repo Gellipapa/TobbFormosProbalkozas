@@ -79,6 +79,8 @@
             this.labelMegrendelo = new System.Windows.Forms.Label();
             this.errorProviderPizzaName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPizzaPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelVegosszeg = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStripStatus.SuspendLayout();
             this.toolStripToolbar.SuspendLayout();
@@ -471,6 +473,8 @@
             // 
             // tabPageSzamlak
             // 
+            this.tabPageSzamlak.Controls.Add(this.labelVegosszeg);
+            this.tabPageSzamlak.Controls.Add(this.label1);
             this.tabPageSzamlak.Controls.Add(this.dataGridViewTetelek);
             this.tabPageSzamlak.Controls.Add(this.labelTetelek);
             this.tabPageSzamlak.Controls.Add(this.labelRendelesek);
@@ -551,6 +555,24 @@
             // errorProviderPizzaPrice
             // 
             this.errorProviderPizzaPrice.ContainerControl = this;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(817, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Végösszeg";
+            // 
+            // labelVegosszeg
+            // 
+            this.labelVegosszeg.AutoSize = true;
+            this.labelVegosszeg.Location = new System.Drawing.Point(932, 200);
+            this.labelVegosszeg.Name = "labelVegosszeg";
+            this.labelVegosszeg.Size = new System.Drawing.Size(35, 13);
+            this.labelVegosszeg.TabIndex = 8;
+            this.labelVegosszeg.Text = "label2";
             // 
             // FormPizzaFutarKft
             // 
@@ -638,6 +660,8 @@
         private System.Windows.Forms.DataGridView dataGridViewTetelek;
         private System.Windows.Forms.Label labelTetelek;
         private System.Windows.Forms.Label labelRendelesek;
+        private System.Windows.Forms.Label labelVegosszeg;
+        private System.Windows.Forms.Label label1;
     }
 }
 

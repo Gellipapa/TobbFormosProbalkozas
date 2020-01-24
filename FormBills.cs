@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TobbbformosPizzaAlkalmazasTobbTabla.Model;
+using TobbbformosPizzaAlkalmazasTobbTabla.repository.OrderItemsView;
 using TobbbformosPizzaAlkalmazasTobbTabla.Repository;
 
 namespace TobbformosMvcPizzaTobbTabla
@@ -105,19 +106,46 @@ namespace TobbformosMvcPizzaTobbTabla
 
         private void listViewRendelesek_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewRendelesek.SelectedItems.Count > 0)
+            if (listViewRendelesek.SelectedItems.Count == 1)
             {
                 dataGridViewTetelek.Visible = true;
                 labelTetelek.Visible = true;
+                feltoltDataGridViewAdatokkal();
+
             }
             else
             {
                 dataGridViewTetelek.Visible = false;
                 labelTetelek.Visible = false;
             }
-            
+
 
 
         }
+
+        private void feltoltDataGridViewAdatokkal()
+        {
+            dataGridViewTetelek.DataSource = null;
+
+            string megrendeloNev = comboBoxMegrendelok.Text;
+            //int orderNumber = repo.getCustomerNumber(megrendeloNev);
+
+            int orderNumber = Convert.ToInt32(listViewRendelesek.SelectedItems[0].Text);
+
+
+            RepositoryOrderItemsView roiv = new RepositoryOrderItemsView(orderNumber, repo.getItems(), repo.getPizzas());
+
+            dataGridViewTetelek.DataSource = roiv.getOrderItemsViewDT();
+            dataGridViewTetelek.ReadOnly = true;
+
+            dataGridViewTetelek.Columns["pizza_nev"].HeaderText = "Pizza név";
+            dataGridViewTetelek.Columns["mennyiseg"].HeaderText = "Mennyiség";
+            dataGridViewTetelek.Columns["egysegar"].HeaderText = "Egységár";
+            dataGridViewTetelek.Columns["tetelar"].HeaderText = "Tételár";
+
+            labelVegosszeg.Text = roiv.getFinalPrice().ToString();
+
+        }
+
     }
 }

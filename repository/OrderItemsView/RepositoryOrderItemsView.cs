@@ -22,6 +22,8 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.repository.OrderItemsView
         public RepositoryOrderItemsView(int orderNumber, List<Item>items, List<Pizza>pizzas)
         {
 
+            roiv = new List<OrderItemsView2>();
+
             List<Item> iviews = items.FindAll(i => i.getOrderId() == orderNumber);
 
             foreach(Item i in iviews)
@@ -57,7 +59,7 @@ namespace TobbbformosPizzaAlkalmazasTobbTabla.repository.OrderItemsView
 
             foreach(OrderItemsView2 oiv in roiv)
             {
-                dt.Rows.Add(oiv.Name, oiv.Piece, oiv.Price, oiv.Price * oiv.Price);
+                dt.Rows.Add(oiv.Name, oiv.Piece, oiv.Price, oiv.Piece * oiv.Price);
             }
 
             return dt;
